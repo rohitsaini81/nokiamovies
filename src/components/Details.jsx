@@ -25,7 +25,7 @@ const url = movies.prolink
   return (
     <div>
       <ReactPlayer 
-          height={'80vh'}
+          height={'50vh'}
           width={'100%'}
           controls={true}
           volume={7}

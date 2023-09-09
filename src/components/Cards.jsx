@@ -1,29 +1,34 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Box, HStack, Text } from '@chakra-ui/react';
+
 
 const Card = (props) => {
 
 
   return (
     <>
-      <section className="pt-20 h-full bg-[#F3F4F6]">
-        <div className="flex card">
+               <HStack wrap={"wrap"} justifyContent={"space-evenly"}>
+
         {props.Data.map((e,index)=>(
+            <Box
+            height={200}
+            width={300}
+            >
           <SingleCard
           key = {index}
           image={e.link}
           CardTitle={e.title}
-          titleHref="/#"
           btnHref={`/details/${e._id}`}
-          CardDescription={e.decripiton}
           Button="View Preview"
         />
        
+       </Box>
 
         ))}  
         
-        </div>
-      </section>
+        </HStack>
+
     </>
   );
 };
@@ -33,41 +38,45 @@ export default Card;
 const SingleCard = ({
   image,
   Button,
-  CardDescription,
   CardTitle,
-  titleHref,
   btnHref,
 }) => {
   return (
     <>
-      {/*  */}
-      <div className="ml boxsize">
-        <img src={image} alt=""/>
-        <div className="p-8">
-          <h3>
-            <a
-              href={titleHref ? titleHref : "/#"}
-              className="mb-5"
-            >
-              {CardTitle}
-            </a>
-          </h3>
-          <p className="mb">
-            {CardDescription}
-          </p>
+       <Box
+      borderWidth="1px"
+      borderRadius="lg"
+      overflow="hidden"
+      boxShadow="md"
+      maxW="300px"
+      height="380px"
+      mb={4}
+      
+      _hover={{
+        transform: 'scale(1.03)',
+        transition: 'transform 0.3s',
+      }}
+    ><Link to={btnHref}>
+      <Box
+        width="100%"
+        height="40%"
+        
+      >
+        <img
+          src={image}
+          alt={""}
+          style={{  width: '100%', height: '100%' }}
+        />
+      </Box>
+      <Box p={4}>
+        <Text fontWeight="bold">
+          {CardTitle}
+        </Text>
 
-          {Button && (
-            <Link
-              to={btnHref}
-              className="mt btn btn-primary" 
-            >
-              
-              {Button}
-            </Link>
-          )}
-        </div>
-      </div>
-    
+      </Box>
+      </Link>
+    </Box>
+  
     </>
   );
 };
