@@ -1,8 +1,8 @@
 import React from 'react';
-import { SimpleGrid, Heading, Box } from '@chakra-ui/react';
+import { SimpleGrid, Heading, Box, HStack } from '@chakra-ui/react';
 import ItemCard from './ItemCard';
 
-const dummyItems = [
+const coins = [
   {
     id: 1,
     title: 'Video 1',
@@ -27,23 +27,33 @@ const dummyItems = [
     description: 'Description for Video 4',
     thumbnailUrl: 'https://via.placeholder.com/150',
   },
-  // Add more video data as needed
+
 ];
 
 const ItemList = () => {
+
   return (
-    <Box height={300} width={500}>
-      <Heading as="h2" size="xl" mb={4}>
-        Video List
-      </Heading>
-      <SimpleGrid columns={{ base: 1, sm: 2, md: 3, lg: 4 }} spacing={4}>
-        
-        {dummyItems.map((item) => (
-          <ItemCard key={item.id} item={item} />
-        ))}
-      </SimpleGrid>
-    </Box>
-    
+ 
+        <>
+          <HStack wrap={"wrap"} justifyContent={"space-evenly"}>
+            
+            {coins.map((i) => (
+              <Box
+              height={200}
+              width={300}
+              >
+              <ItemCard
+                id={i.id}
+                key={i.id}
+                name={i.title}
+                description={i.description}
+                img={i.thumbnailUrl}
+              />
+            </Box>
+            ))}
+          </HStack>
+        </>
+     
   );
 };
 

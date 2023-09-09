@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Text } from '@chakra-ui/react';
 
-const ItemCard = ({ item }) => {
+const ItemCard = (props) => {
   return (
     <Box
       borderWidth="1px"
@@ -22,16 +22,16 @@ const ItemCard = ({ item }) => {
         position="relative"
       >
         <img
-          src={item.thumbnailUrl}
-          alt={item.title}
+          src={props.img}
+          alt={props.name}
           style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
         />
       </Box>
       <Box p={4}>
         <Text fontWeight="bold" fontSize="lg">
-          {item.title}
+          {props.title}
         </Text>
-        <Text color="gray.500">{item.description}</Text>
+        <Text color="gray.500">{props.description}</Text>
       </Box>
     </Box>
   );
