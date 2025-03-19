@@ -17,7 +17,7 @@ export default function Nav() {
  export function Home(props) {
       return (
         <div>Home Page
-      <Card Data={props.rdata}/>
+      <Card Data={props.data}/>
          
         </div>
       )
