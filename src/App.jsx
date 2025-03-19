@@ -32,7 +32,7 @@ function App() {
   <Nav />
   
       <Routes>
-    <Route path="/" element={<Home rdata={data}/>} />
+    <Route path="/" element={<Home data={data}/>} />
      <Route path='/details/:id' element ={<Details />} />
      <Route path="/details/*" element={<Details />} />
      <Route path="/pre/" element={<ItemList />} />
