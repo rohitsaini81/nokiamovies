@@ -11,7 +11,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Footer from './components/Footer';
 import { flexbox } from '@chakra-ui/react';
 
-const url="https://get-movies-w63k.onrender.com/api/movies"
+const url="http://13.60.74.121:3001/api/movies"
 function App() {
   const [data, setData] = useState([]);
   useEffect(() => {
